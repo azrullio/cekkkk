@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masjid Jogokariyan Clone</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+   
+
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+<header>
+  <div class="navbar">
+    <h1>Masjid Jogokariyan</h1>
+    <nav class="nav-links">
+      <a href="index.html">tentang</a>
+      <a href="profil.html">Profil</a>
+      <a href="acara.html">Event</a>
+      <a href="dokumentasi.html">dokumentasi</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+    <button id="menu-btn">☰</button>
+  </div>
+  <div id="mobile-menu">
+    <a href="index.html">tentang</a>
+    <a href="profil.html">Profil</a>
+    <a href="acara.html">Event</a>
+    <a href="dokumentasi.html">dokumentasi</a>
+    <a href="kontak.html">Kontak</a>
+  </div>
+</header>
+    
+ <section class="py-16 bg-gray-100" id="event">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center text-green-700">Event</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded shadow" data-aos="zoom-in">
+                    <h3 class="text-xl font-bold mb-2">Kajian Subuh</h3>
+                    <p class="mb-4">Kajian rutin setiap minggu selepas Subuh.</p>
+                    <button class="bg-green-700 text-white px-4 py-2 rounded modal-btn" data-modal="modal1">Detail</button>
+                </div>
+                <!-- Modal -->
+                <div id="modal1" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white p-6 rounded shadow max-w-md w-full">
+                        <h3 class="text-2xl font-bold mb-4">Detail Kajian Subuh</h3>
+                        <p class="mb-4">Kajian Subuh diadakan setiap minggu dengan pemateri yang kompeten.</p>
+                        <button class="bg-red-500 text-white px-4 py-2 rounded close-modal">Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <!-- Footer -->
+    <footer class="bg-green-700 text-white text-center py-4">
+        &copy; 2025 Masjid Jogokariyan. All rights reserved.
+    </footer>
+
+
+    <!-- Sticky Donasi Button -->
+    <a href="#" class="fixed bottom-6 right-6 bg-yellow-400 text-green-900 px-6 py-3 rounded-full shadow-lg hover:bg-yellow-300 z-50">Donasi</a>
+
+    <!-- Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        // Swiper init
+        const swiper = new Swiper('.mySwiper', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // AOS init
+        AOS.init();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Modal logic
+        const modalBtns = document.querySelectorAll('.modal-btn');
+        const closeModalBtns = document.querySelectorAll('.close-modal');
+
+        modalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = document.getElementById(btn.dataset.modal);
+                modal.classList.remove('hidden');
+            });
+        });
+
+        closeModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.fixed').classList.add('hidden');
+            });
+        });
+        window.addEventListener('scroll', () => {
+        const hero = document.getElementById('hero');
+        const content = document.getElementById('hero-content');
+        const scrollY = window.scrollY;
+
+        // Jika scrollY > 50 → kasih efek blur
+        if (scrollY > 50) {
+            hero.style.filter = 'blur(5px)';
+            content.style.transform = 'scale(1.1)'; // teks membesar
+        } else {
+            hero.style.filter = 'blur(0)';
+            content.style.transform = 'scale(1)';   // teks normal
+        }
+    });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+html, body {
+  overflow-x: hidden;
+}
+
+/* RESET DASAR */
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
+  color: #1f2937; /* gray-800 */
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* HEADER & NAVBAR */
+/* HEADER & NAVBAR PERBAIKAN */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 50;
+  padding: 0.5rem 1rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937; /* gray-800 */
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #374151; /* gray-700 */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #047857; /* green-700 */
+}
+
+/* MOBILE BUTTON */
+#menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+#mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: white;
+  padding: 1rem;
+}
+
+#mobile-menu.show {
+  display: flex;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  #menu-btn {
+    display: block;
+  }
+
+  #mobile-menu a {
+    color: #374151;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  #mobile-menu a:hover {
+    color: #047857;
+  }
+}
+
+
+/* HERO SECTION */
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #047857; /* fallback */
+  background-image: url('img/masjid.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+}
+
+
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3); /* jangan terlalu gelap */
+  z-index: 1;
+}
+
+#hero h1,
+#hero p,
+#hero a {
+  position: relative;
+  z-index: 2;
+}
+
+
+#hero h1 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+#hero p {
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+
+#hero a {
+  background-color: #facc15; /* yellow-400 */
+  color: #065f46; /* green-900 */
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#hero a:hover {
+  background-color: #fde047; /* yellow-300 */
+}
+
+
+/* SECTION UMUM */
+section {
+  padding: 4rem 1rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #047857; /* green-700 */
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+section p {
+  color: #374151; /* gray-700 */
+}
+
+/* TENTANG */
+#tentangg img {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: 0px;
+}
+
+#tentangg h2 {
+    margin-top: 0px;
+}
+
+/* Background pattern */
+.bg-pattern {
+    background-image: url('../img/pattern.png'); /* Ganti path sesuai folder kamu */
+    background-size: contain;
+    background-repeat: repeat;
+    
+}
+
+/* Highlight underline */
+.highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0.1em;
+    width: 100%;
+    height: 0.2em;
+    background-color: #30c7ec; /* warna biru seperti gambar */
+    border-radius: 0.15em;
+    transform: scaleX(0.9);
+    transform-origin: left;
+}
+
+/* Responsive tweaks (opsional) */
+@media (max-width: 768px) {
+    .profil-section h2 {
+        font-size: 2rem;
+    }
+    .profil-section p {
+        font-size: 1rem;
+    }
+}
+
+
+/* GALERI */
+.swiper {
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.swiper-slide img {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* EVENT */
+.event-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.event-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.event-card p {
+  margin-bottom: 1rem;
+}
+
+.event-card .modal-btn {
+  background-color: #047857; /* green-700 */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.event-card .modal-btn:hover {
+  background-color: #065f46; /* green-800 */
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal .content {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+.modal .close {
+  background-color: #ef4444; /* red-500 */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  border: none;
+}
+
+.modal .close:hover {
+  background-color: #dc2626; /* red-600 */
+}
+
+/* FOOTER */
+footer {
+  background-color: #047857; /* green-700 */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* STICKY DONASI BUTTON */
+.sticky-donasi {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: #facc15; /* yellow-400 */
+  color: #065f46; /* green-900 */
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-decoration: none;
+  z-index: 50;
+}
+
+.sticky-donasi:hover {
+  background-color: #fde047; /* yellow-300 */
+}
+
+/* RESPONSIVE GRID UNTUK TENTANG DAN EVENT */
+@media (min-width: 768px) {
+  #tentangg .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f0f0;
+}
+
+
+.section-melayang {
+  position: relative;
+  top: -130px; /* angkat naik */
+  z-index: 20;
+}
+
+.section-melayang .container {
+  display: flex;
+  flex-wrap: wrap; /* Tambahkan ini */
+  justify-content: center;
+  gap: 20px;
+  padding: 2rem 1rem; /* atas-bawah 2rem, kiri-kanan 1rem */
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+  max-width: 1100px;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .section-melayang .container {
+    padding: 50px;
+  }
+}
+
+.card {
+  text-align: center;
+  width: 100%; /* default responsif */
+  max-width: 300px;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 15px auto; /* tengah secara horizontal */
+  display: block;           /* pastikan tidak inline */
+}
+
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 15px;
+  color: #555;
+}
+
+
+@media (max-width: 768px) {
+  .profil-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .profil-section p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 2rem;
+  }
+  #hero p {
+    font-size: 1rem;
+  }
+}
+
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masjid Jogokariyan Clone</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+   
+
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+<header>
+  <div class="navbar">
+    <h1>Masjid Jogokariyan</h1>
+    <nav class="nav-links">
+      <a href="index.html">tentang</a>
+      <a href="profil.html">Profil</a>
+      <a href="acara.html">Event</a>
+      <a href="dokumentasi.html">dokumentasi</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+    <button id="menu-btn">☰</button>
+  </div>
+  <div id="mobile-menu">
+    <a href="index.html">tentang</a>
+    <a href="profil.html">Profil</a>
+    <a href="acara.html">Event</a>
+    <a href="dokumentasi.html">dokumentasi</a>
+    <a href="kontak.html">Kontak</a>
+  </div>
+</header>
+    
+
+ <!-- Galeri Section -->
+    <section class="py-16" id="galeri">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center text-green-700">Galeri</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Galeri 1" class="w-full rounded"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Galeri 2" class="w-full rounded"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Galeri 3" class="w-full rounded"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+    <footer class="bg-green-700 text-white text-center py-4">
+        &copy; 2025 Masjid Jogokariyan. All rights reserved.
+    </footer>
+
+
+    <!-- Sticky Donasi Button -->
+    <a href="#" class="fixed bottom-6 right-6 bg-yellow-400 text-green-900 px-6 py-3 rounded-full shadow-lg hover:bg-yellow-300 z-50">Donasi</a>
+
+    <!-- Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        // Swiper init
+        const swiper = new Swiper('.mySwiper', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // AOS init
+        AOS.init();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Modal logic
+        const modalBtns = document.querySelectorAll('.modal-btn');
+        const closeModalBtns = document.querySelectorAll('.close-modal');
+
+        modalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = document.getElementById(btn.dataset.modal);
+                modal.classList.remove('hidden');
+            });
+        });
+
+        closeModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.fixed').classList.add('hidden');
+            });
+        });
+        window.addEventListener('scroll', () => {
+        const hero = document.getElementById('hero');
+        const content = document.getElementById('hero-content');
+        const scrollY = window.scrollY;
+
+        // Jika scrollY > 50 → kasih efek blur
+        if (scrollY > 50) {
+            hero.style.filter = 'blur(5px)';
+            content.style.transform = 'scale(1.1)'; // teks membesar
+        } else {
+            hero.style.filter = 'blur(0)';
+            content.style.transform = 'scale(1)';   // teks normal
+        }
+    });
+        
+    </script>
+</body>
+</html>
